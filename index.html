@@ -5,17 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="div_id2"></div>
-  <input placeholder="insert image" id="input_img" type="text">
-  <input placeholder="insert link" id="input_link" type="text">
-  <input placeholder="movie name" id="input_movieName" type="text">
-  <input placeholder="movie raiting" id="input_rating" type="text">
-  <input placeholder="summary" id="input_synopsis" type="text">
-  <button onclick="addMyMovie()" id="btn5">post</button>
-  <button onclick="showMovies()" id="btn_show_movies">show movies</button>
-  <button onclick="executeFuncAbove()" id="btn_show_movies">user button</button>
+  <div id="inputs_id">
+    <input oninput="showMovies()" id="serch" placeholder="search movie" type="text">
+    <button class="btn" onclick="getMovieByName()" id="btn_show_movies">search button</button>
+    <h2>Eldad's movies site!</h2>
+    <input class="some" placeholder="insert image" id="input_img" type="text">
+    <input class="some" placeholder="insert link" id="input_link" type="text">
+    <input class="some" placeholder="movie name" id="input_movieName" type="text">
+    <input class="some" placeholder="movie raiting" id="input_rating" type="text">
+    <input class="some" placeholder="summary" id="input_synopsis" type="text">
+    <div id="divbtn">
+      <button class="btn" onclick="addMyMovie()" id="btn5">post</button>
+      <button class="btn" onclick="showMovies()" id="btn_show_movies">show movies</button>
+      <button class="btn" onclick="executeFuncAbove()" id="btn_show_movies"> add movie</button>
+    </div>
+  </div>
+  <div id="showPlz"></div>
+  <div id="div_id"></div>
   <script src="main.js"></script>
 </body>
 </html>

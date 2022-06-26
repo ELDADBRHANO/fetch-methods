@@ -11,12 +11,20 @@ async function returnMoviesName() {
 
 
 function printMovies() {
+  div_id.innerHTML= `<img style="width:50vw;" src=".imges/loading.gif"/>`
   returnMoviesName()
   .then(res=>res.data.forEach(item => {
     div_id2.innerHTML += `<ul><li>${item.movieName}</li><img style='width:20vw;height:20vh;' src='${item.image}'</ul>` 
   }))
   .catch((error)=>{console.log(error);})
+  .finally(
+    ()=>{
+  div_id.innerHTML= '';
+    })
+  
 }
+
+
 
 function showMovies() {
   printMovies()
@@ -89,4 +97,33 @@ async function getMovieUser() {
 
 function executeFuncAbove() {
   getMovieUser()
+}
+
+
+
+
+
+
+
+
+const API_WEB="https:/moviesmern.herokuapp.com/movies/"
+async function getMovieByName() {
+  try {
+   return await fetch(`${API_WEB}movie/searchByName/${serch.value}`)
+    .then(res=> res.json())
+  } 
+  catch (error) {
+    
+  }
+  finally{div_id.innerHTML=""}
+}
+
+
+function showMovies() {
+  showPlz.innerHTML="";
+  getMovieByName()
+  .then((result)=>{
+    result.data.forEach(movie=>
+      showPlz.innerHTML+=`<li>${movie.movieName}</li>`)
+  })
 }
